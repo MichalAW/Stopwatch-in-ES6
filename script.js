@@ -23,14 +23,15 @@ class Stopwatch {
     }
 }
 
-function pad0(value) {
-    let result = value.toString();
-    
-    if (result.length < 2) {
-        result = '0' + result;
-    }
-    return result;
-}
+class Result extends React.Component {
+    constructor(value) {
+        toString(value)
+        if (result.length < 2) {
+            result = '0' + result;
+        }
+        return result;
+    };
+};
 
 let startButton = document.getElementById('start');
 startButton.addEventListener('click', () => stopwatch.start());
