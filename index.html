@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head lang="en En">
+  <head lang="en En">
     <meta charset="UTF-8" />
     <title>Stoptimer by Michael Wanta</title>
-    <link rel="stylesheet" type="text/css" href="./css/style.css">
-</head>
-<body>
-    <div class="container">
-        <nav class="controls">
-            <a href="#" class="button" id="start">Start</a>
-            <a href="#" class="button" id="stop">Stop</a>
-        </nav>
-        <div class="stopwatch"></div>
-        <ul class="results"></ul>
-    </div>
-    <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
-    <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
-    <script type="text/javascript" src="script-compiled.js"></script>
-</body>
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+  </head>
+	<body>
+		<div class="container">
+			<nav class="controls">
+				<a href="#" class="button" id="start">Start</a>
+				<a href="#" class="button" id="stop">Stop</a>
+			</nav>
+			<div class="stopwatch"></div>
+			<div id="stopwatchcomp"></div>
+		</div>
+		<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+		<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+		<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+		<script type="text/javascript" src="script-compiled.js"></script>
+		<script type="text/babel"></script>
+	</body>
 </html>
