@@ -1,5 +1,6 @@
  function pad0(value) {
 	console.log(value);
+	// let makes variable work in a block context
 	let result = value.toString();
 
 	if (result.length < 2) {
@@ -10,6 +11,7 @@
 }
 class StopWatchComponent extends React.Component {
 	constructor(props) {
+		// access this.props in constructor
 		super(props);
 		this.state = {
 			running: false,
@@ -26,6 +28,7 @@ class StopWatchComponent extends React.Component {
 	}
 
 	format(times) {
+		// Returns the largest integer equal to the data.
 		console.log(times);
 		return `${pad0(times.minutes)}:${pad0(times.seconds)}:${pad0(
 			Math.floor(times.miliseconds)
@@ -35,6 +38,7 @@ class StopWatchComponent extends React.Component {
 	start() {
 		if (!this.state.running) {
 			this.state.running = true;
+			// Set the delay to cyclically call.
 			this.watch = setInterval(() => this.step(), 10);
 		}
 	}
@@ -65,7 +69,8 @@ class StopWatchComponent extends React.Component {
 	stop() {
 		this.setState({
 			running: false
-		});
+		});		
+		//  removes calling the function setInterval () method.
 		clearInterval(this.watch);
 	}
 	render() {
@@ -85,4 +90,4 @@ class StopWatchComponent extends React.Component {
 	}
 }
 
-ReactDOM.render(<StopWatchComponent />, document.getElementById("stopwatchcomp"));
+ReactDOM.render(<StopWatchComponent />, document.getElementById("stopWatchComp"));
