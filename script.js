@@ -1,5 +1,5 @@
 function pad0(value) {
-    let result = value.toString();
+	let result = value.toString();
 
 	if (result.length < 2) {
 		result = "0" + result;
@@ -44,21 +44,23 @@ class StopWatchComponent extends React.Component {
 	}
 
 	calculate() {
+		let miliseconds = this.state.miliseconds + 1,
+			seconds = this.state.seconds,
+			minutes = this.state.minutes;
+		if (miliseconds >= 100) {
+			seconds += 1;
+			miliseconds = 0;
+		}
+		if (seconds == 60) {
+			minutes += 1;
+			seconds = 0;
+			miliseconds = 0;
+		}
 		this.setState({
-			miliseconds: this.state.miliseconds + 1
+			minutes,
+			seconds,
+			miliseconds
 		});
-		if (this.state.miliseconds >= 100) {
-			this.setState({
-				seconds: this.state.seconds + 1,
-				miliseconds: 0
-			});
-		}
-		if (this.state.seconds >= 60) {
-			this.setState({
-				seconds: this.state.seconds + 1,
-				miliseconds: 0
-			});
-		}
 	}
 
 	stop() {
@@ -70,14 +72,14 @@ class StopWatchComponent extends React.Component {
 	render() {
 		return (
 			<div>
-				<p onClick={this.start}>Start</p>
-				<p onClick={this.stop}>Stop</p>
+				<button onClick={this.start}>Start</button>
+				<button onClick={this.stop}>Stop</button>
 				<p>
-				{this.format({
-					minutes: this.state.minutes,
-					seconds: this.state.seconds,
-					miliseconds: this.state.miliseconds
-				})}
+					{this.format({
+						minutes: this.state.minutes,
+						seconds: this.state.seconds,
+						miliseconds: this.state.miliseconds
+					})}
 				</p>
 			</div>
 		);
